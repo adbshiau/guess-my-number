@@ -16,13 +16,28 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '🎉 Correct number!';
     // if guess is greater than secret number
   } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent = '📈 Too high!';
-    score--;
-    document.querySelector('.score').textContent = score;
-    // nif guess is lower than secret number
+    // run if score is more than 1
+    if (score > 1) {
+      document.querySelector('.message').textContent = '📈 Too high!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent =
+        '💥 You have lost the game!';
+      document.querySelector('.score').textContent = 0;
+    }
+
+    // if guess is lower than secret number
   } else if (guess < secretNumber) {
-    document.querySelector('.message').textContent = '📉 Too low!';
-    score--;
-    document.querySelector('.score').textContent = score;
+    // run if score is more than 1
+    if (score > 1) {
+      document.querySelector('.message').textContent = '📉 Too low!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent =
+        '💥 You have lost the game!';
+      document.querySelector('.score').textContent = 0;
+    }
   }
 });
